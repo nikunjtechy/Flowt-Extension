@@ -23,7 +23,6 @@
     --rule:      #cfdde5;
     --accent:    #07748f;
     --accent-ink:#ffffff;
-    --warm:      #c43f1e;
     --off:       #b4c6d0;
 
     --display: "Newsreader", Georgia, "Times New Roman", serif;
@@ -44,7 +43,6 @@
         --rule:      #1f3d4f;
         --accent:    #4cc4e4;
         --accent-ink:#06202b;
-        --warm:      #ff8560;
         --off:       #2c4c5e;
         color-scheme: dark;
     }
@@ -58,7 +56,6 @@
     --rule:      #1f3d4f;
     --accent:    #4cc4e4;
     --accent-ink:#06202b;
-    --warm:      #ff8560;
     --off:       #2c4c5e;
     color-scheme: dark;
 }
@@ -292,19 +289,6 @@ h2 {
 .nots li { display: flex; gap: 11px; align-items: baseline; color: var(--fg-muted); font-size: 0.95rem; }
 .nots li::before { content: "—"; color: var(--accent); flex: none; }
 
-/* ---------- support ---------- */
-.support {
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-left: 3px solid var(--warm);
-    border-radius: 6px;
-    padding: 28px;
-}
-.support h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin-bottom: 10px; }
-.support p { color: var(--fg-muted); max-width: var(--measure); margin: 0 0 20px; }
-.btn-warm { background: var(--warm); color: #fff; }
-.btn-warm:hover { filter: brightness(1.08); }
-
 /* ---------- footer ---------- */
 footer { border-top: 1px solid var(--rule); padding-block: 32px 44px; }
 .foot-row { display: flex; justify-content: space-between; gap: 16px 28px; flex-wrap: wrap; align-items: baseline; }
@@ -336,7 +320,6 @@ a:focus-visible, button:focus-visible {
             <a href="#hides">What it hides</a>
             <a href="#lock">The lock</a>
             <a href="#privacy">Privacy</a>
-            <a href="#support">Support</a>
         </nav>
     </header>
 
@@ -499,21 +482,6 @@ a:focus-visible, button:focus-visible {
             </ul>
         </section>
 
-        <section id="support">
-            <div class="support">
-                <h2>If Flowt gave you an evening back</h2>
-                <p>
-                    Flowt is free and stays free. There is no paid tier, nothing is held back, and
-                    nothing here changes if you close this page. If it has been useful, you can
-                    leave something toward the next version.
-                </p>
-                <div class="cta-row">
-                    <a id="support-cta" class="btn btn-warm" href="#support" hidden>Buy me a coffee</a>
-                    <span id="support-pending" class="cta-note">Support link coming shortly.</span>
-                </div>
-            </div>
-        </section>
-
     </main>
 
     <footer>
@@ -534,10 +502,9 @@ a:focus-visible, button:focus-visible {
 </div>
 
 <script>
-/* Fill these two in and the buttons switch themselves on. Leave either empty and
+/* Fill this in and the install button switches itself on. Leave it empty and
    the page shows an honest placeholder instead of a dead link. */
-var STORE_URL   = "";   /* e.g. "https://chromewebstore.google.com/detail/<id>" */
-var SUPPORT_URL = "";   /* e.g. "https://buymeacoffee.com/<name>"               */
+var STORE_URL = "";   /* e.g. "https://chromewebstore.google.com/detail/<id>" */
 
 (function () {
     var install = document.getElementById("install-cta");
@@ -546,16 +513,6 @@ var SUPPORT_URL = "";   /* e.g. "https://buymeacoffee.com/<name>"               
         install.textContent = "Add to Chrome — free";
         install.className = "btn btn-primary";
         install.removeAttribute("aria-disabled");
-    }
-
-    var support = document.getElementById("support-cta");
-    var pending = document.getElementById("support-pending");
-    if (support && SUPPORT_URL) {
-        support.href = SUPPORT_URL;
-        support.rel = "noopener";
-        support.target = "_blank";
-        support.hidden = false;
-        if (pending) pending.hidden = true;
     }
 })();
 </script>
