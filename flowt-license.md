@@ -1,6 +1,6 @@
 # End-User License Agreement (EULA) for Flowt
 
-*Effective date: October 12, 2026*
+*Effective date: November 12, 2026 (previous version: October 12, 2026)*
 
 This End-User License Agreement ("EULA") is a legal agreement between you (either an individual or a single entity) and the developer of Flowt ("Flowt", "we", "us", or "our") for the Flowt browser extension, including any updates we provide ("the Software"). By installing or using the Software, you agree to be bound by this EULA and by the [Flowt Privacy Policy](https://nikunjtechy.github.io/Flowt-Extension/privacy-policy), which forms part of it. If you do not agree, do not install or use the Software.
 
@@ -44,6 +44,8 @@ The Software is a personal self-control and focus tool. It is **not** a security
 - Any feature, including the PIN lock, can be bypassed, for example by disabling or uninstalling the extension, by using another browser or device, or by YouTube changing its website.
 - The PIN is a deliberate obstacle against impulsive changes, not a password. It is stored on your device without encryption. Do not reuse a PIN or code that protects anything else.
 - If you forget your PIN, you may need to reinstall the Software and lose your saved settings.
+- Focus Session, Focus Lock, the daily limit, the break reminder and Scheduled Blocking act only because **you choose to turn them on and set them up**. When they work as designed, they can stop you from turning features off, pause a video, prevent new videos from playing, or replace YouTube with a "paused" page until a time you chose. A Focus Session cannot be ended early. You accept that, while any of them is active, you may be unable to use YouTube in that browser as you otherwise would, including for content you need urgently, and that we are not responsible for any consequence of that.
+- Watch-time figures, limits and schedules depend on your device's clock and on YouTube's website, and may be approximate, delayed or wrong. They are not a medical, clinical or professional measure of anything, and must not be relied on as one.
 
 You are responsible for deciding whether the Software is suitable for your needs.
 
