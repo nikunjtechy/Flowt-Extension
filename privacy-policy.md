@@ -1,6 +1,6 @@
 # Privacy Policy for Flowt
 
-*Effective date: November 12, 2026 (previous version: October 11, 2026)*
+*Effective date: November 22, 2026 (previous version: November 12, 2026)*
 *Applies to: Flowt - Distraction Blocker for YouTube, version 1.1.0 and later*
 
 This Privacy Policy explains how the Flowt browser extension ("Flowt", "the extension", "we", "us" or "our") handles information. It covers the extension itself and the support channels linked from it. Please read it together with the [Flowt License Agreement](https://nikunjtechy.github.io/Flowt-Extension/flowt-license).
@@ -19,7 +19,7 @@ Flowt stores only what it needs to work. None of this information is sent to us.
 
 | Information | Where it is stored | Why |
 |---|---|---|
-| Feature settings (for example "Hide Home Feed", "Hide Comments" or "Hide Live Chat"), security options including Focus Lock and its wait length, break-reminder and daily-limit settings, the weekly schedules you create for Scheduled Blocking (their names, days, times and type), accent color, light or dark mode, and whether first-run setup has been completed | `chrome.storage.sync` | To remember your choices. If Chrome Sync is turned on, Chrome copies these settings to your other signed-in browsers. Choosing a Mode simply changes these same settings; the mode itself is not stored. |
+| Feature settings (for example "Hide Home Feed", "Hide Comments" or "Hide Live Chat"), security options including Focus Lock and its wait length, break-reminder and daily-limit settings, the weekly schedules you create for Scheduled Blocking (their names, days, times and type), the keywords and channels you add to Keyword & Channel Filters and which of those lists are in use, accent color, light or dark mode, popup style, and whether first-run setup has been completed | `chrome.storage.sync` | To remember your choices. If Chrome Sync is turned on, Chrome copies these settings to your other signed-in browsers. Choosing a Mode simply changes these same settings; the mode itself is not stored. |
 | Your 4-digit PIN | `chrome.storage.local` (this device only) | To enforce the optional startup lock and the lock on changing settings. |
 | Reasons you type before turning Flowt off (at most the 20 most recent, with the date and time) | `chrome.storage.local` (this device only) | Only used when you enable "Ask for a Reason Before Disabling", so you can review them on the settings page. |
 | A breakage report: the names of Flowt features that appear to have stopped working on YouTube, with dates | `chrome.storage.local` (this device only) | To tell you in the popup when a YouTube change has broken a feature. It contains no page addresses or watch history. |
@@ -28,6 +28,7 @@ Flowt stores only what it needs to work. None of this information is sent to us.
 | A pending Focus Lock request: which switch you asked to turn off and when the wait ends | `chrome.storage.local` (this device only) | To make you wait, then confirm, before that switch turns off. Removed once you confirm, cancel, or the confirmation window passes. |
 | The daily-limit allowance: the date and the YouTube video ID of the one video you were allowed to finish after reaching your daily limit | `chrome.storage.local` (this device only) | So that only that video can play on after your limit is reached. It holds a single entry, replaced the next time it is needed, and has no effect after that day. |
 | Whether to offer the one-time Mode picker after installation | `chrome.storage.local` (this device only) | Removed as soon as you choose a Mode or skip the picker. |
+| Whether the settings page tour has already opened on this device | `chrome.storage.local` (this device only) | So the tour opens by itself only once. It is a single yes-or-no value. |
 | A temporary, one-time pass that allows a PIN reset | `chrome.storage.session` | Cleared automatically when the browser closes. |
 
 **About the PIN.** The PIN is a self-control aid, not a security credential. It is stored on your device in readable form and is not encrypted. Anyone with access to your computer or browser profile could read it. **Do not reuse a PIN or code that protects anything else, such as a bank card or phone.**
@@ -40,6 +41,8 @@ Flowt runs only on `https://www.youtube.com/*`. On those pages it reads the page
 
 While Flowt is on, it also checks, locally, whether the video player on the page is playing. It adds the playing time to that day's total and nothing else: no titles, channels or addresses are kept. When your optional daily limit is reached, Flowt pauses the video on the page and shows its own notice. During a Scheduled Blocking slot you set to block YouTube, Flowt shows its own "YouTube is paused" page, which is bundled inside the extension and loads nothing from the internet.
 
+If you add keywords or channels to Keyword & Channel Filters, Flowt reads the title and channel of each video YouTube lists on the page and compares them, **locally in your browser**, with your own lists to decide which videos to hide. These titles and channels are never recorded, stored or sent anywhere; only the entries you typed yourself are saved.
+
 ## 4. Permissions and why they are needed
 
 | Permission | Purpose |
@@ -48,7 +51,7 @@ While Flowt is on, it also checks, locally, whether the video player on the page
 | `declarativeNetRequestWithHostAccess` | Powers two optional features. For "Permanently Block" Shorts, Flowt registers a single rule that sends `youtube.com/shorts` addresses to the YouTube home page. For Scheduled Blocking, during a slot you set to block YouTube, Flowt registers a single rule that shows its own "YouTube is paused" page instead of YouTube, and removes the rule when the slot ends. Chrome applies these rules itself; Flowt does not see, read or log your web requests. |
 | `scripting` | When Flowt is installed or updated, it adds its own bundled scripts to YouTube tabs that are already open, so they work without a refresh. Flowt never loads or runs code from the internet. |
 | `alarms` | Ends a Focus Session on time, and starts or ends a Scheduled Blocking slot on time. Flowt keeps at most one alarm for the end of a session and one for the next schedule change. Alarms carry no personal information. |
-| Host access to `https://www.youtube.com/*` | Limits Flowt to YouTube. Within YouTube tabs it lets Flowt hide the elements you choose, count watch time locally and pause a video at your daily limit. It also lets Flowt find open YouTube tabs and send them to the right page when you turn on "Permanently Block" or when a Scheduled Blocking slot starts. These page addresses are checked at that moment and are never stored. |
+| Host access to `https://www.youtube.com/*` | Limits Flowt to YouTube. Within YouTube tabs it lets Flowt hide the elements and the videos your filters match, count watch time locally and pause a video at your daily limit. It also lets Flowt find open YouTube tabs and send them to the right page when you turn on "Permanently Block" or when a Scheduled Blocking slot starts. These page addresses are checked at that moment and are never stored. |
 
 Flowt cannot access any other website.
 
@@ -64,7 +67,7 @@ We use this information only to reply to you, investigate problems and improve F
 
 ## 6. Settings backup files
 
-The settings page can export your settings to a file. The file is created in your browser and saved wherever you choose. It is never uploaded anywhere. The file contains your synced settings only, including any schedules you created. **Your PIN, reason log, breakage report and watch time are never included in a backup file.** You are responsible for keeping any exported file safe.
+The settings page can export your settings to a file. The file is created in your browser and saved wherever you choose. It is never uploaded anywhere. The file contains your synced settings only, including any schedules and keyword and channel filter lists you created. **Your PIN, reason log, breakage report and watch time are never included in a backup file.** You are responsible for keeping any exported file safe.
 
 ## 7. What we do not do
 
@@ -91,6 +94,7 @@ Because Flowt's data stays in your browser, you control it directly:
 - **Reason log:** Settings → Accountability → *Clear Log*.
 - **Breakage report:** *Dismiss* on the popup notice.
 - **Schedules:** Settings → Scheduled Blocking → *Delete* on any schedule.
+- **Keyword & Channel Filters:** Settings → Keyword & Channel Filters → the remove button on any keyword or channel.
 - **Watch time:** each day's total is deleted automatically after 90 days; uninstalling removes all of it at once.
 - **Focus Session and Focus Lock:** removed automatically when the session or the wait ends. By design, a Focus Session cannot be ended early.
 - **Appearance:** Settings → Customization → *Reset Customization*.
@@ -113,7 +117,7 @@ Flowt is developed in India, and anyone can use it anywhere. Since the extension
 
 ## 14. Third-party services
 
-Flowt links to services we do not control, including YouTube, Google Forms, Chrome Sync and your email provider. Their own privacy policies govern how they handle your information. Flowt only changes how YouTube pages look in your browser. Your use of YouTube itself remains subject to YouTube's and Google's terms and policies.
+Flowt links to services we do not control, including YouTube, Google Forms, Chrome Sync, your email provider, and, from the settings page, the Flowt website, X and LinkedIn. These pages open only when you click their links, and Flowt sends them nothing. Their own privacy policies govern how they handle your information. Flowt only changes how YouTube pages look in your browser. Your use of YouTube itself remains subject to YouTube's and Google's terms and policies.
 
 ## 15. Changes to this policy
 
